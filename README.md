@@ -52,8 +52,8 @@ Sample result
 # Fetch the target list and format it as a JSON array
 # For the "short" list
 targets=$(curl -s https://raw.githubusercontent.com/mbierman/AItargetlist/main/ai_short | jq -R -s -c 'split("\n") | map(select(length > 0))')
-# for the "loing" list
-targets=$(curl -s  | jq -R -s -c 'split("\n") | map(select(length > 0))')
+# for the "long" list Uncomment below if you prefer this one. 
+# targets=$(curl -s https://raw.githubusercontent.com/mbierman/AItargetlist/main/ai_full | jq -R -s -c 'split("\n") | map(select(length > 0))')
 
 
 replace the [targetlistid] with the target list found above.
