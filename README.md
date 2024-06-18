@@ -1,6 +1,6 @@
 You can use this list with Firealla as a target list to block (or allow) AI tools on your network. You can: 
-1. import manually through the [free web portal](https://my.firewalla.com) the [paid MSP](https://firewalla.net)
-2. use the [MSP target API](https://kaleb.firewalla.net/api/docs/api-reference/target-lists/) to import and update
+1. import manually through the [free web portal](https://my.firewalla.com) or the [paid MSP](https://firewalla.net)
+2. use the [MSP target API](https://kaleb.firewalla.net/api/docs/api-reference/target-lists/) to import and update the target list. 
 
 # Create Target List 
 `POST https://msp_domain/v2/target-lists`
@@ -48,6 +48,7 @@ Sample result
 
 ```
 #!/bin/bash
+token=XXX
 
 # Fetch the target list and format it as a JSON array
 # For the "short" list
@@ -60,7 +61,7 @@ replace the [targetlistid] with the target list found above.
 # Update target List
 curl --location --request PATCH 'https://[mspname].firewalla.net/v2/target-lists/[targetlistid]' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Token [MSP token]' \
+--header 'Authorization: Token $token' \
 --data '{
     "targets": '"$targets"',
 }'
