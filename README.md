@@ -50,7 +50,10 @@ Sample result
 #!/bin/bash
 
 # Fetch the target list and format it as a JSON array
+# For the "short" list
 targets=$(curl -s https://raw.githubusercontent.com/mbierman/AItargetlist/main/ai_short | jq -R -s -c 'split("\n") | map(select(length > 0))')
+# for the "loing" list
+https://github.com/mbierman/AItargetlist/blob/main/ai_full.txt
 
 replace the [targetlistid] with the target list found above.
 # Update target List
