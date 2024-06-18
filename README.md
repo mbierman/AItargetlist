@@ -18,6 +18,31 @@ curl --location 'https://[mspname].firewalla.net/v2/target-lists' \
   "notes": "Block for AI"
 }'
 ```
+Find the target ID for the next step:
+
+`GET https://msp_domain/v2/target-lists`
+
+```
+curl --location 'https://[mspname].firewalla.net/v2/target-lists' \
+--header 'Authorization: Token [MSP token]'
+```
+
+Sample result
+```
+...
+{
+        "id": "TL-1228fab7-cd1d-4a99-bb48-frr79437e075",
+        "name": "AI target list",
+        "owner": "global",
+        "targets": [
+            "foo1.com"
+        ],
+        "category": "private",
+        "notes": "Block for AI",
+        "lastUpdated": 1718740702.459
+    }
+...
+```
 
 # Updating the target list
 
@@ -27,6 +52,7 @@ curl --location 'https://[mspname].firewalla.net/v2/target-lists' \
 # Fetch the target list and format it as a JSON array
 targets=$(curl -s https://raw.githubusercontent.com/mbierman/AItargetlist/main/ai_short | jq -R -s -c 'split("\n") | map(select(length > 0))')
 
+replace the [targetlistid] with the target list found above.
 # Update target List
 curl --location --request PATCH 'https://[mspname].firewalla.net/v2/target-lists/[targetlistid]' \
 --header 'Content-Type: application/json' \
