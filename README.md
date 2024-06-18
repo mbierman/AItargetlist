@@ -53,7 +53,8 @@ Sample result
 # For the "short" list
 targets=$(curl -s https://raw.githubusercontent.com/mbierman/AItargetlist/main/ai_short | jq -R -s -c 'split("\n") | map(select(length > 0))')
 # for the "loing" list
-https://github.com/mbierman/AItargetlist/blob/main/ai_full.txt
+targets=$(curl -s https://github.com/mbierman/AItargetlist/blob/main/ai_full.txt](https://raw.githubusercontent.com/mbierman/AItargetlist/main/ai_full.txt | jq -R -s -c 'split("\n") | map(select(length > 0))')
+
 
 replace the [targetlistid] with the target list found above.
 # Update target List
